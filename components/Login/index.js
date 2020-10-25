@@ -3,6 +3,7 @@ import styles from './Styles.module.css'
 import { LoginForm } from '../LoginForm'
 import { useAuth } from '../../context/authContext'
 import Link from 'next/link'
+import { Logo } from '../../icons'
 
 export const LoginComp = () => {
   const router = useRouter()
@@ -12,7 +13,7 @@ export const LoginComp = () => {
 
   return (
     <div className={styles.containerLogin}>
-      <img src='/Logo.png' />
+      <Logo />
       {user === null &&
         <LoginForm
           handleClickGitHub={singinWithGitBub}
