@@ -1,0 +1,27 @@
+.containerButton {
+  align-items: center;
+  background: var(--verde);
+  border-radius: 9999px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 8px 24px;
+  transition: .3s;
+  user-select: none;
+}
+
+.containerButton[disabled]{
+  opacity: .2;
+  pointer-events: none;
+}
+
+.containerButton > :global(svg) {
+  margin-right: 8px;
+}
+
+.containerButton:hover {
+  background: var(--azul);
+}

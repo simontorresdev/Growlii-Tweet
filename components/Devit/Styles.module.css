@@ -1,0 +1,12 @@
+.containerDevit{
+  border-bottom: 1px solid #eee;
+  display: flex;
+  padding: 10px 15px;
+}
+.containerDevit div {
+  padding-right: 10px;
+}
+.containerDevit p{
+  line-height: 1.3125;
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+.containerAvatar{
+  display: flex;
+  align-items: center;
+}
+.containerAvatar img{
+  border-radius: 50px;
+  width: 49px;
+  height: 49px;
+}
+.containerAvatar strong{
+  margin-left: 8px;
+}

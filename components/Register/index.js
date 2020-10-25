@@ -1,26 +1,26 @@
 import { useRouter } from 'next/router'
 import styles from './Styles.module.css'
-import { LoginForm } from '../LoginForm'
+import { RegisterForm } from '../RegisterForm'
 import { useAuth } from '../../context/authContext'
 import Link from 'next/link'
 
-export const LoginComp = () => {
+export const RegisterComp = () => {
   const router = useRouter()
-  const { user, loginWithEmailPassword, signinWithGoogle, siginWithFacebook, singinWithGitBub } = useAuth()
+  const { user, signinWithEmailPassword, signinWithGoogle, siginWithFacebook, singinWithGitBub } = useAuth()
 
   user && router.push('/')
 
   return (
-    <div className={styles.containerLogin}>
+    <div className={styles.containerRegister}>
       <img src='/Logo.png' />
       {user === null &&
-        <LoginForm
+        <RegisterForm
           handleClickGitHub={singinWithGitBub}
           handleClickGoogle={signinWithGoogle}
           handleClickFacebook={siginWithFacebook}
-          loginWithEmailPassword={loginWithEmailPassword}
+          signinWithEmailPassword={signinWithEmailPassword}
         />}
-      <Link href='/signup'><a>¿No tienes una cuenta? Regístrate</a></Link>
+      <Link href='/login'><a>¿Ya tienes una cuenta? Inicia sesión</a></Link>
     </div>
   )
 }

@@ -1,43 +1,21 @@
-import Head from 'next/head'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
-
-import {
-  loginWithGitHub,
-  onAuthStateChanged
-} from '../firebase/client'
+import { useRouter } from 'next/router'
+import { useAuth } from '../context/authContext'
+import { Cargando } from '../components/Cargando'
 
 export default function Home () {
-  const [user, setUser] = useState(undefined)
+  const router = useRouter()
+  const { user } = useAuth()
 
   useEffect(() => {
-    onAuthStateChanged(user => setUser(user))
-    console.log(user)
-  }, [])
-
-  const handleClick = () => {
-    loginWithGitHub().then(user => {
-      const { avatar, username, url } = user
-      setUser(user)
-      console.log(user)
-    }).catch(err => {
-      console.log(err)
-    })
-  }
+    user === null && router.push('/login')
+    user && router.push('/home')
+  }, [user])
 
   return (
-    <div className={styles.container}>
-      <img src='/Logo.png' alt='' />
-      {user === null &&
-        <button onClick={handleClick}>
-          Iniciar Sesion
-        </button>}
-      {user && user.avatar &&
-        <div>
-          <img src={user.avatar} />
-          <strong>{user.username}</strong>
-        </div>}
-
+    <div className={styles.containerProcesando}>
+      <Cargando />
     </div>
   )
 }

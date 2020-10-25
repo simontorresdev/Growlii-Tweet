@@ -1,14 +1,14 @@
-.containerLogin{
+.containerRegister{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.containerLogin img{
+.containerRegister img{
     width: 180px;
 }
-.containerLogin button{
+.containerRegister button{
   background: #04C45C;
   color: #fff;
   border-radius: 50px;
@@ -19,17 +19,17 @@
   cursor: pointer;
   width: 100%;
 }
-.containerLogin button:hover{
+.containerRegister button:hover{
   background: #001b38;
 }
-.containerLogin .containerForm{
+.containerRegister .containerForm{
   width: 300px;
   display: flex;
   flex-direction: column;
   margin-top: 30px;
   box-sizing: border-box;
 }
-.containerLogin .containerForm input{
+.containerRegister .containerForm input{
   width: 100%;
   border: 1px solid #c4c4c4;
   height: 1.1876em;
@@ -41,17 +41,17 @@
   color: rgba(0,0,0,.7);
   border-radius: 10px;
 }
-.containerLogin .containerSocials {
+.containerRegister .containerSocials {
   display: flex;
   margin-top: 40px;
   justify-content: space-around;
 }
-.containerLogin .containerSocials svg{
+.containerRegister .containerSocials svg{
   width: 25px;
   height: 25px;
   cursor: pointer;
 }
-.containerLogin a{
+.containerRegister a{
   margin-top: 30px;
   text-decoration: none;
   color: #546774;

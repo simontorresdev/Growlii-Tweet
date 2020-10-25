@@ -1,0 +1,29 @@
+.containerForm{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+.containerForm input{
+  width: 100%;
+  border: 1px solid #c4c4c4;
+  height: 1.1876em;
+  margin: 10px 0;
+  display: block;
+  padding: 22px 20px;
+  min-width: 0;
+  background: none;
+  color: rgba(0,0,0,.7);
+  border-radius: 10px;
+}
+.containerForm .containerSocials {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-around;
+}
+.containerForm .containerSocials svg{
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
