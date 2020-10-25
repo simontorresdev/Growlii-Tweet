@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react'
 import AppLayout from '../components/AppLayout'
 import Devit from '../components/Devit'
 import styles from '../styles/Home.module.css'
+import { fetchLatestDevits } from '../firebase/client'
+import { useAuth } from '../context/authContext'
 
 export default function Home () {
   const [timeline, setTimeline] = useState([])
+  const { user } = useAuth()
 
   useEffect(() => {
-    fetch('/api/statuses/home_timeline')
-      .then((res) => res.json())
-      .then(setTimeline)
-  }, [])
+    user && fetchLatestDevits().then((timeline) => {
+      setTimeline(timeline)
+      console.log(timeline)
+    })
+  }, [user])
 
   return (
     <div className={styles.containerHome}>
@@ -19,13 +23,15 @@ export default function Home () {
           <h2>Inicio</h2>
         </header>
         <section>
-          {timeline.map(({ id, username, avatar, message }) => (
+          {timeline.map(({ id, userName, avatar, content, userId, createdAt }) => (
             <Devit
               avatar={avatar}
+              createdAt={createdAt}
               id={id}
               key={id}
-              message={message}
-              username={username}
+              content={content}
+              userName={userName}
+              userId={userId}
             />
           ))}
         </section>
