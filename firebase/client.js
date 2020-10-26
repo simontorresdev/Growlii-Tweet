@@ -15,7 +15,7 @@ if (typeof window !== 'undefined' && !firebase.apps.length) {
     measurementId: 'G-GVW18Z3B1G'
   })
 
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 }
 export { firebase }
 
