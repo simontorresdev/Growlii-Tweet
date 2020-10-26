@@ -45,9 +45,8 @@ const useProviderAuth = () => {
   }
 
   const singinWithGitBub = () => {
-    return firebase
-      .auth()
-      .signInWithPopup(new firebase.auth.GithubAuthProvider())
+    const githubProvider = new firebase.auth.GithubAuthProvider()
+    return firebase.auth().signInWithPopup(githubProvider)
   }
 
   const signout = () => {
