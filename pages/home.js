@@ -4,6 +4,8 @@ import Devit from '../components/Devit'
 import styles from '../styles/Home.module.css'
 import { fetchLatestDevits } from '../firebase/client'
 import { useAuth } from '../context/authContext'
+import Link from 'next/link'
+import { Create, IconHome, Search } from '../icons'
 
 export default function Home () {
   const [timeline, setTimeline] = useState([])
@@ -22,7 +24,7 @@ export default function Home () {
         <header>
           <h2>Inicio</h2>
         </header>
-        <section>
+        <section className={styles.containerTweets}>
           {timeline.map(({ id, userName, avatar, content, userId, createdAt }) => (
             <Devit
               avatar={avatar}
@@ -35,7 +37,23 @@ export default function Home () {
             />
           ))}
         </section>
-        <nav />
+        <nav className={styles.containerNav}>
+          <Link href='/home'>
+            <a>
+              <IconHome width={30} height={30} stroke='#001B38' />
+            </a>
+          </Link>
+          <Link href='/compose/tweet'>
+            <a>
+              <Search width={30} height={30} stroke='#001B38' />
+            </a>
+          </Link>
+          <Link href='/compose/tweet'>
+            <a>
+              <Create width={30} height={30} stroke='#001B38' />
+            </a>
+          </Link>
+        </nav>
       </AppLayout>
     </div>
   )

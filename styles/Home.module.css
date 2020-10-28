@@ -16,17 +16,42 @@
   backdrop-filter: blur(5px);
 }
 
+.containerHome .containerTweets{
+  flex: 1;
+  padding-bottom: 40px;
+}
+
 .containerHome h2 {
   font-size: 21px;
   font-weight: 800;
   padding-left: 15px;
 } 
-.containerHome nav {
+.containerNav {
   background: #ffffffaa;
   backdrop-filter: blur(5px);
   bottom: 0;
   border-top: 1px solid #eee;
-  height: 49px;
+  min-height: 40px;
   position: sticky;
   width: 100%;
+  display: flex;
+}
+.containerNav a{
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: all ease .3s;
+}
+.containerNav a:hover{
+  background: radial-gradient(#0099ff30 15%, transparent 16%);
+  background-size: 180px 180px;
+  background-position: center;
+}
+.containerNav svg{
+  transition: all ease .3s;
+}
+.containerNav a:hover svg{
+  stroke: var(--verde);
 }

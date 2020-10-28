@@ -34,6 +34,7 @@ export const addDevit = ({ avatar, content, userId, userName }) => {
 export const fetchLatestDevits = () => {
   return firebase.firestore()
     .collection('devits')
+    .orderBy('createdAt', 'desc')
     .get()
     .then(snapshot => {
       return snapshot.docs.map((doc) => {
@@ -41,13 +42,10 @@ export const fetchLatestDevits = () => {
         const id = doc.id
         const { createdAt } = data
 
-        const date = new Date(createdAt.seconds * 1000)
-        const normalizedCreatedAt = new Intl.DateTimeFormat('es-Es').format(date)
-
         return {
           ...data,
           id: id,
-          createdAt: normalizedCreatedAt
+          createdAt: +createdAt.toDate()
         }
       })
     })
