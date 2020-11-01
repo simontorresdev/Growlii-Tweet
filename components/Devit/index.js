@@ -2,7 +2,7 @@ import { Avatar } from '../Avatar'
 import styles from './Styles.module.css'
 import useTimeAgo from '../../hooks/useTimeAgo'
 
-export default function Devit ({ avatar, userName, content, id, createdAt }) {
+export default function Devit ({ avatar, img, userName, content, id, createdAt }) {
   const timeago = useTimeAgo(createdAt)
   return (
     <>
@@ -16,6 +16,7 @@ export default function Devit ({ avatar, userName, content, id, createdAt }) {
             <p>{timeago}</p>
           </div>
           <p>{content}</p>
+          {img && <img src={img} className={styles.imgTweet} />}
         </section>
       </article>
     </>

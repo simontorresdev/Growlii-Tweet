@@ -6,6 +6,7 @@ import { fetchLatestDevits } from '../firebase/client'
 import { useAuth } from '../context/authContext'
 import Link from 'next/link'
 import { Create, IconHome, Search } from '../icons'
+import Head from 'next/head'
 
 export default function Home () {
   const [timeline, setTimeline] = useState([])
@@ -21,15 +22,19 @@ export default function Home () {
   return (
     <div className={styles.containerHome}>
       <AppLayout>
+        <Head>
+          <title>Home / Growlii Tweet</title>
+        </Head>
         <header>
           <h2>Inicio</h2>
         </header>
         <section className={styles.containerTweets}>
-          {timeline.map(({ id, userName, avatar, content, userId, createdAt }) => (
+          {timeline.map(({ id, img, userName, avatar, content, userId, createdAt }) => (
             <Devit
               avatar={avatar}
               createdAt={createdAt}
               id={id}
+              img={img}
               key={id}
               content={content}
               userName={userName}
