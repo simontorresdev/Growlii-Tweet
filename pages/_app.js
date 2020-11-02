@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { AuthProvider } from '../context/authContext'
 import Head from 'next/head'
+import AppLayout from '../components/AppLayout'
 
 function MyApp ({ Component, pageProps }) {
   return (
@@ -11,7 +12,9 @@ function MyApp ({ Component, pageProps }) {
         <link href='https://fonts.googleapis.com/css2?family=Muli:wght@300;500;700&display=swap' rel='stylesheet' />
       </Head>
       <AuthProvider>
-        <Component {...pageProps} />
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
       </AuthProvider>
     </>
   )

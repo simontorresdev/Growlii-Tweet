@@ -32,7 +32,7 @@
   bottom: 0;
   border-top: 1px solid #eee;
   min-height: 40px;
-  position: sticky;
+  position: fixed;
   width: 100%;
   display: flex;
 }

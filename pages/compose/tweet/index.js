@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import AppLayout from '../../../components/AppLayout'
 import { Button } from '../../../components/Button'
 import styles from '../../../styles/Compose/tweet.module.css'
 import { useAuth } from '../../../context/authContext'
@@ -96,41 +95,39 @@ export default function ComposeTweet () {
 
   return (
     <>
-      <AppLayout>
-        <Head>
-          <title>Crear tweet / Growlii Tweet</title>
-        </Head>
-        <section className={styles.formContainer}>
-          {user && (
-            <section className={styles.avatarContainer}>
-              <Avatar src={user.photoURL} />
+      <Head>
+        <title>Crear tweet / Growlii Tweet</title>
+      </Head>
+      <section className={styles.formContainer}>
+        {user && (
+          <section className={styles.avatarContainer}>
+            <Avatar src={user.photoURL} />
+          </section>
+        )}
+        <form className={styles.containerTweet} onSubmit={handleSumit}>
+          <textarea
+            placeholder='¿Qué esta pasando?'
+            onChange={handleChange}
+            onDragEnter={handleDragEnter}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            className={drag === DRAG_IMAGE_STATES.DRAG_OVER ? styles.drop : undefined}
+          />
+          {imgURL && (
+            <section className={styles.imgTweet}>
+              <button onClick={() => { setImgURL(null) }}>x</button>
+              <img src={imgURL} />
             </section>
           )}
-          <form className={styles.containerTweet} onSubmit={handleSumit}>
-            <textarea
-              placeholder='¿Qué esta pasando?'
-              onChange={handleChange}
-              onDragEnter={handleDragEnter}
-              onDragLeave={handleDragLeave}
-              onDrop={handleDrop}
-              className={drag === DRAG_IMAGE_STATES.DRAG_OVER ? styles.drop : undefined}
-            />
-            {imgURL && (
-              <section className={styles.imgTweet}>
-                <button onClick={() => { setImgURL(null) }}>x</button>
-                <img src={imgURL} />
-              </section>
-            )}
-            <div>
-              <Button
-                disabled={isButtonDisabled}
-              >
+          <div>
+            <Button
+              disabled={isButtonDisabled}
+            >
               Twittear
-              </Button>
-            </div>
-          </form>
-        </section>
-      </AppLayout>
+            </Button>
+          </div>
+        </form>
+      </section>
     </>
   )
 }
