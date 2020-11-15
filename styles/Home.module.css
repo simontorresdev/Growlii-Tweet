@@ -32,9 +32,14 @@
   bottom: 0;
   border-top: 1px solid #eee;
   min-height: 40px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   display: flex;
+}
+@media (max-width: 768px) {
+  .containerNav {
+    position: fixed;
+  }
 }
 .containerNav a{
   display: flex;

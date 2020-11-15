@@ -2,6 +2,11 @@
   border-bottom: 1px solid #eee;
   display: flex;
   padding: 10px 15px;
+  transition: .3s;
+}
+.containerDevit:hover{
+  cursor: pointer;
+  background: #f5f8fa;
 }
 .containerDevit div {
   padding-right: 10px;
@@ -17,7 +22,7 @@
   display: flex;
   justify-content: space-between;
 }
-.containerDevit .nameDate p{
+.containerDevit .nameDate time{
   font-size: 14px;
   color: #555;
 }

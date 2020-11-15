@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Devit from '../components/Devit'
 import styles from '../styles/Home.module.css'
-import { fetchLatestDevits } from '../firebase/client'
+import { listenLatestDevits } from '../firebase/client'
 import { useAuth } from '../context/authContext'
 import Link from 'next/link'
 import { Create, IconHome, Search } from '../icons'
@@ -12,10 +12,13 @@ export default function Home () {
   const { user } = useAuth()
 
   useEffect(() => {
-    user && fetchLatestDevits().then((timeline) => {
-      setTimeline(timeline)
-      console.log(timeline)
+    let unsuscribe
+    user && listenLatestDevits((newDevits) => {
+      // console.log('Listened with!', newDevits)
+      unsuscribe = setTimeline(newDevits)
     })
+
+    return () => unsuscribe && unsuscribe()
   }, [user])
 
   return (
