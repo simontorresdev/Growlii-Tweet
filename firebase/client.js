@@ -66,6 +66,16 @@ export const fetchLatestDevits = () => {
     })
 }
 
+export const fetchOneDevit = (id) => {
+  return firebase.firestore()
+    .collection('devits')
+    .doc(id)
+    .get()
+    .then((doc) => {
+      return doc.data()
+    })
+}
+
 export const uploadImage = (file) => {
   const ref = firebase.storage().ref(`images/${file.name}`)
   const task = ref.put(file)
