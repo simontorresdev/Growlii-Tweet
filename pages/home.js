@@ -27,7 +27,7 @@ export default function Home () {
         <title>Home / Growlii Tweet</title>
       </Head>
       <header>
-        <h2>Inicio 2</h2>
+        <h2>Inicio 23</h2>
       </header>
       <section className={styles.containerTweets}>
         {timeline.map(({ id, img, userName, avatar, content, userId, createdAt }) => (
