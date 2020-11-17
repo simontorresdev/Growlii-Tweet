@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import { listenLatestDevits } from '../firebase/client'
 import { useAuth } from '../context/authContext'
 import Link from 'next/link'
-import { Create, IconHome, Search } from '../icons'
+import { Create, IconHome, Search, Logo } from '../icons'
 import Head from 'next/head'
 
 export default function Home () {
@@ -27,7 +27,7 @@ export default function Home () {
         <title>Home / Growlii Tweet</title>
       </Head>
       <header>
-        <h2>Inicio 23</h2>
+        <Logo />
       </header>
       <section className={styles.containerTweets}>
         {timeline.map(({ id, img, userName, avatar, content, userId, createdAt }) => (
