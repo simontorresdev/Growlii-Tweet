@@ -34,14 +34,16 @@
 } 
 .containerNav {
   background: #fffc;
+  background: #000;
   backdrop-filter: blur(5px);
   bottom: -2px;
   border-top: 1px solid #eee;
-  min-height: 42px;
+  min-height: 45px;
   position: sticky;
   width: 100%;
   display: flex;
-  padding-top: 5px;
+  padding-bottom: 2px;
+  align-items: center;
 }
 @media (max-width: 768px) {
   .containerNav {
